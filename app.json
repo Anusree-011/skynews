@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.skynews.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +20,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.skynews.app"
     },
     "web": {
       "output": "static",
@@ -29,7 +31,7 @@
       "expo-router",
       [
         "expo-splash-screen",
-{
+        {
           "image": "./assets/images/icons.png",
           "imageWidth": 200,
           "resizeMode": "contain",
@@ -40,6 +42,18 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a683cbf4-76a7-48c4-86a0-ef1cccc8f7b8"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a683cbf4-76a7-48c4-86a0-ef1cccc8f7b8"
     }
   }
 }

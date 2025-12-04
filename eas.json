@@ -1,0 +1,58 @@
+{
+  "cli": {
+    "version": ">= 16.28.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_NEWS_API_KEY": "development_key",
+        "EXPO_PUBLIC_WEATHER_API_KEY": "development_key"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      },
+      "ios": {
+        "buildConfiguration": "Release"
+      },
+      "env": {
+        "EXPO_PUBLIC_NEWS_API_KEY": "preview_key",
+        "EXPO_PUBLIC_WEATHER_API_KEY": "preview_key"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "channel": "production",
+      "android": {
+        "buildType": "app-bundle",
+        "gradleCommand": ":app:bundleRelease"
+      },
+      "ios": {
+        "buildConfiguration": "Release"
+      },
+      "env": {
+        "EXPO_PUBLIC_NEWS_API_KEY": "production_key",
+        "EXPO_PUBLIC_WEATHER_API_KEY": "production_key"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./android-service-account.json",
+        "track": "internal"
+      },
+      "ios": {
+        "appleId": "your-apple-id@example.com",
+        "ascAppId": "1234567890",
+        "appleTeamId": "ABCDEFGHIJ"
+      }
+    }
+  }
+}

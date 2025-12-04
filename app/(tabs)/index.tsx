@@ -12,18 +12,21 @@ export default function HomeTab() {
   const [originalArticles, setOriginalArticles] = useState<{id: number; title: string; description: string; urlToImage: string; url: string}[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchLoading, setSearchLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [country, setCountry] = useState('in');
 
   useEffect(() => {
     const loadRegionalNews = async () => {
       try {
         const location = await getCurrentLocation();
-        const newsData = await fetchRegionalNews(location.country.toLowerCase());
+        const countryCode = location.country.toLowerCase();
+        setCountry(countryCode);
+        const newsData = await fetchRegionalNews(countryCode, 1);
         setArticles(newsData);
         setOriginalArticles(newsData);
+        setCurrentPage(1);
       } catch (error) {
         console.error('Failed to load regional news:', error);
-        // Fallback to sample data
-        
       } finally {
         setLoading(false);
       }
@@ -31,6 +34,29 @@ export default function HomeTab() {
     
     loadRegionalNews();
   }, []);
+
+  const handleRefresh = async () => {
+    try {
+      const newsData = await fetchRegionalNews(country, 1);
+      setArticles(newsData);
+      setOriginalArticles(newsData);
+      setCurrentPage(1);
+    } catch (error) {
+      console.error('Failed to refresh news:', error);
+    }
+  };
+
+  const handleLoadMore = async () => {
+    try {
+      const nextPage = currentPage + 1;
+      const moreNews = await fetchRegionalNews(country, nextPage);
+      setArticles(prev => [...prev, ...moreNews]);
+      setOriginalArticles(prev => [...prev, ...moreNews]);
+      setCurrentPage(nextPage);
+    } catch (error) {
+      console.error('Failed to load more news:', error);
+    }
+  };
 
   const handleSearchResults = (searchResults: any[]) => {
     if (searchResults.length > 0) {
@@ -49,7 +75,7 @@ export default function HomeTab() {
       </View>
     
     
-      {loading || searchLoading ? <LoadingSkeleton /> : <NewsList articles={articles} />}
+      {loading || searchLoading ? <LoadingSkeleton /> : <NewsList articles={articles} onRefresh={handleRefresh} onLoadMore={handleLoadMore} />}
     </SafeAreaView>
   );
 }

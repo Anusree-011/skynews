@@ -1,6 +1,6 @@
 export const fetchWeather = async (lat, lon) => {
   try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=dbbc949bddd59d7f7411c4868538b7d9`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.EXPO_PUBLIC_WEATHER_API_KEY}`);
     const data = await response.json();
     
     return {

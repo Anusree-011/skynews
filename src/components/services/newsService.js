@@ -1,4 +1,4 @@
-const NEWS_API_KEY = 'ee7eca087df0fd6adf5c48589255a428';
+const NEWS_API_KEY = process.env.EXPO_PUBLIC_NEWS_API_KEY;
 const BASE_URL = 'https://gnews.io/api/v4/top-headlines';
 const SEARCH_URL = 'https://gnews.io/api/v4/search';
 

@@ -71,10 +71,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     marginBottom: 6,
+
   },
 
   description: {
     fontSize: 14,
     color: "#555",
+
   },
 });

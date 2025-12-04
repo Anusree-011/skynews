@@ -15,15 +15,15 @@ export default function WeatherTab() {
 }
 
 const styles = StyleSheet.create({
+
   header: {
-    backgroundColor: '#4a90e2',
     paddingVertical: 20,
     alignItems: 'center',
-    elevation: 4,
   },
   headerTitle: {
-    color: 'white',
+    color: 'black',  // changed to black
     fontSize: 24,
     fontWeight: 'bold',
+
   },
-})
+});

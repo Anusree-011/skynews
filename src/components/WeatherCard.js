@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     fontWeight: "600",
+    fontFamily: "Times New Roman",
   },
   weatherRow: {
     flexDirection: "row",
@@ -74,6 +75,7 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: "bold",
     marginRight: 12,
+    fontFamily: "Times New Roman",
   },
   icon: {
     fontSize: 40,
@@ -83,10 +85,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
     marginBottom: 4,
+    fontFamily: "Times New Roman",
   },
   description: {
     color: "#e6f3ff",
     fontSize: 16,
     textTransform: "capitalize",
+    fontFamily: "Times New Roman",
   },
 });

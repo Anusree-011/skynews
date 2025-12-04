@@ -1,5 +1,6 @@
 const NEWS_API_KEY = 'ee7eca087df0fd6adf5c48589255a428';
 const BASE_URL = 'https://gnews.io/api/v4/top-headlines';
+const SEARCH_URL = 'https://gnews.io/api/v4/search';
 
 export const fetchRegionalNews = async (country = 'in') => {
   try {
@@ -33,5 +34,26 @@ export const fetchRegionalNews = async (country = 'in') => {
         urlToImage: "https://picsum.photos/200/141",
       },
     ];
+  }
+};
+
+export const searchNews = async (query) => {
+  try {
+    const response = await fetch(`${SEARCH_URL}?q=${encodeURIComponent(query)}&apikey=${NEWS_API_KEY}`);
+    const data = await response.json();
+    
+    if (data.articles) {
+      return data.articles.map((article, index) => ({
+        id: index + 1,
+        title: article.title,
+        description: article.description,
+        urlToImage: article.image || 'https://picsum.photos/200/140',
+      }));
+    }
+    
+    return [];
+  } catch (error) {
+    console.error('GNews search error:', error);
+    return [];
   }
 };

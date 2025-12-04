@@ -7,7 +7,7 @@ export default function WeatherTab() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#f0f8ff' }}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Weather Details</Text>
+        <Text style={styles.headerTitle}>Weather Updates</Text>
       </View>
       <DetailedWeatherCard />
     </SafeAreaView>
@@ -17,13 +17,16 @@ export default function WeatherTab() {
 const styles = StyleSheet.create({
 
   header: {
-    paddingVertical: 20,
-    alignItems: 'center',
-  },
-  headerTitle: {
-    color: 'black',  // changed to black
-    fontSize: 24,
-    fontWeight: 'bold',
 
+    alignItems: 'center',
+    paddingTop: 18,
+    paddingBottom: 8,
+  },
+ headerTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+    fontFamily: 'sans-serif',
   },
 });

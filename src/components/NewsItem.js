@@ -1,19 +1,12 @@
 
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
-import { router } from "expo-router";
+import { View, Text, Image, TouchableOpacity, StyleSheet, Linking } from "react-native";
 
 export default function NewsItem({ article }) {
   const openArticle = () => {
-    console.log('Opening article:', article);
-    router.push({
-      pathname: '/news-detail',
-      params: {
-        title: article.title,
-        description: article.description,
-        image: article.urlToImage,
-      },
-    });
+    if (article.url) {
+      Linking.openURL(article.url);
+    }
   };
 
   return (

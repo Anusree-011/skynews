@@ -110,6 +110,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f0f8ff",
+    padding: 0,
+    margin: 0,
   },
 
   loadingContainer: {
@@ -125,7 +127,8 @@ const styles = StyleSheet.create({
 
   mainCard: {
     backgroundColor: "#4a90e2",
-    margin: 16,
+    marginVertical: 6,
+    marginHorizontal: 14,
     padding: 32,
     borderRadius: 20,
     alignItems: "center",

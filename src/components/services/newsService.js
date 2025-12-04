@@ -13,6 +13,7 @@ export const fetchRegionalNews = async (country = 'in') => {
         title: article.title,
         description: article.description,
         urlToImage: article.image || 'https://picsum.photos/200/140',
+        url: article.url,
       }));
     }
     
@@ -26,12 +27,14 @@ export const fetchRegionalNews = async (country = 'in') => {
         title: "Sample News Title One",
         description: "This is a sample description. API failed, showing fallback data.",
         urlToImage: "https://picsum.photos/200/140",
+        url: "https://example.com/news1",
       },
       {
         id: 2,
         title: "Sample News Title Two", 
         description: "Another sample description for fallback data.",
         urlToImage: "https://picsum.photos/200/141",
+        url: "https://example.com/news2",
       },
     ];
   }
@@ -48,6 +51,7 @@ export const searchNews = async (query) => {
         title: article.title,
         description: article.description,
         urlToImage: article.image || 'https://picsum.photos/200/140',
+        url: article.url,
       }));
     }
     

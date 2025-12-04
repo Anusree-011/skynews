@@ -8,8 +8,8 @@ import { getCurrentLocation } from '../../src/components/services/locationServic
 import { fetchRegionalNews } from '../../src/components/services/newsService';
 
 export default function HomeTab() {
-  const [articles, setArticles] = useState<{id: number; title: string; description: string; urlToImage: string}[]>([]);
-  const [originalArticles, setOriginalArticles] = useState<{id: number; title: string; description: string; urlToImage: string}[]>([]);
+  const [articles, setArticles] = useState<{id: number; title: string; description: string; urlToImage: string; url: string}[]>([]);
+  const [originalArticles, setOriginalArticles] = useState<{id: number; title: string; description: string; urlToImage: string; url: string}[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchLoading, setSearchLoading] = useState(false);
 
@@ -57,12 +57,11 @@ export default function HomeTab() {
 const styles = StyleSheet.create({
 header: {
   paddingTop: 18,
-  paddingBottom: 4,
   alignItems: 'center',
 },
   headerTitle: {
     fontSize: 24,
-    fontWeight: '800',
+    fontWeight: '600',
     letterSpacing: 1,
     textTransform: 'uppercase',
     fontFamily: 'sans-serif',

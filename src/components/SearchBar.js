@@ -41,7 +41,7 @@ export default function SearchBar({ onSearchResults, onLoadingChange }) {
   };
   
   return (
-    <View style={{ marginTop: 10,marginBottom: 10, padding: 3 ,width:"100%" ,}}>
+    <View style={{ marginTop: 10,marginBottom: 3, padding: 3 ,width:"100%" ,}}>
       <Searchbar
         placeholder="Search news..."
         onChangeText={handleTextChange}

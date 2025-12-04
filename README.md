@@ -63,12 +63,12 @@ EXPO_PUBLIC_WEATHER_API_KEY=your_weather_api_key_here
 ## Screenshots
 
 ### Home Screen (News)
-<img src="screenshots/news.jpeg" width="50%" style="display: block;">
+<img src="screenshots/news.jpeg" width="20%" style="display: block;">
 
 *Shows latest news articles with images and headlines*
 
 ### Weather Screen
-<img src="screenshots/weather.jpeg" width="50%" style="display: block;">
+<img src="screenshots/weather.jpeg" width="20%" style="display: block;">
 
 *Shows current weather and forecast for your location*
 

@@ -49,7 +49,7 @@ export default function HomeTab() {
       </View>
     
     
-      {searchLoading ? <LoadingSkeleton /> : <NewsList articles={articles} />}
+      {loading || searchLoading ? <LoadingSkeleton /> : <NewsList articles={articles} />}
     </SafeAreaView>
   );
 }

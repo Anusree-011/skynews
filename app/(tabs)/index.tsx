@@ -1,40 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {  View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import SearchBar from '../../src/components/SearchBar';
 import NewsList from '../../src/components/NewsList';
+import { getCurrentLocation } from '../../src/components/services/locationService';
+import { fetchRegionalNews } from '../../src/components/services/newsService';
 
 export default function HomeTab() {
-  const sampleWeather = {
-    city: "New Delhi",
-    temp: 28,
-    description: "Clear Sky",
-  };
+  const [articles, setArticles] = useState<{id: number; title: string; description: string; urlToImage: string}[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const sampleArticles = [
-    {
-      id: 1,
-      title: "Sample News Title One",
-      description: "This is a sample description. This is only for UI preview, no API.",
-      urlToImage: "https://picsum.photos/200/140",
-    },
-    {
-      id: 2,
-      title: "Sample News Title Two", 
-      description: "Another sample description for your UI mock design. No API used here.",
-      urlToImage: "https://picsum.photos/200/141",
-    },
-  ];
+  useEffect(() => {
+    const loadRegionalNews = async () => {
+      try {
+        const location = await getCurrentLocation();
+        const newsData = await fetchRegionalNews(location.country.toLowerCase());
+        setArticles(newsData);
+      } catch (error) {
+        console.error('Failed to load regional news:', error);
+        // Fallback to sample data
+        
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadRegionalNews();
+  }, []);
 
+ 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
       <View style={styles.header}>
-          <SearchBar />
-        <Text style={styles.headerTitle}>SkyNews</Text>
+       
+        <Text style={styles.headerTitle}>Sky News</Text>
+           <SearchBar />
       </View>
-      {/* <WeatherCard weather={sampleWeather} /> */}
     
-      <NewsList articles={sampleArticles} />
+    
+      <NewsList articles={articles} />
     </SafeAreaView>
   );
 }

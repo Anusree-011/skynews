@@ -11,8 +11,8 @@ export default function TabLayout() {
           backgroundColor: '#c57fe6ff',
           borderTopWidth: 1,
           borderTopColor: '#E5E5EA',
-          height:60,
-          paddingBottom:10,
+          height: 60,
+          paddingBottom: 10,
           paddingTop: 1,
         },
         tabBarLabelStyle: {
@@ -27,7 +27,7 @@ export default function TabLayout() {
           title: 'News',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
-              name={focused ? 'home' : 'home-outline'}
+              name={focused ? "newspaper" : "newspaper-outline"}
               size={26}
               color={color}
             />

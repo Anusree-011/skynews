@@ -1,34 +1,29 @@
 import React from 'react';
 import {  View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import WeatherCard from '../../src/components/WeatherCard';
+import DetailedWeatherCard from '../../src/components/DetailedWeatherCard';
 
 export default function WeatherTab() {
-  const sampleWeather = {
-    city: "New Delhi",
-    temp: 28,
-    description: "Clear Sky",
-  };
-
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#f0f8ff' }}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Weather</Text>
+        <Text style={styles.headerTitle}>Weather Details</Text>
       </View>
-      <WeatherCard weather={sampleWeather} />
+      <DetailedWeatherCard />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#007AFF',
-    paddingVertical: 15,
+    backgroundColor: '#4a90e2',
+    paddingVertical: 20,
     alignItems: 'center',
+    elevation: 4,
   },
   headerTitle: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
   },
 })

@@ -6,7 +6,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 
 export default function NewsDetail() {
-  const { title, description, image } = useLocalSearchParams();
+  const params = useLocalSearchParams();
+  const title = Array.isArray(params.title) ? params.title[0] : params.title;
+  const description = Array.isArray(params.description) ? params.description[0] : params.description;
+  const image = Array.isArray(params.image) ? params.image[0] : params.image;
+  
+  console.log('News detail params:', { title, description, image });
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,8 +24,9 @@ export default function NewsDetail() {
       
       <ScrollView style={styles.content}>
         <Image 
-          source={{ uri: image as string || 'https://picsum.photos/400/200' }} 
-          style={styles.image} 
+          source={{ uri: (image as string) || 'https://picsum.photos/400/200' }} 
+          style={styles.image}
+          onError={() => console.log('Image failed to load:', image)}
         />
         
         <View style={styles.textContent}>
